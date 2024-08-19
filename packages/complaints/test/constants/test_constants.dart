@@ -3,7 +3,7 @@ import 'package:complaints/models/entities/complaint_types.dart';
 import 'package:digit_data_model/data_model.dart';
 import 'package:digit_data_model/models/entities/pgr_application_status.dart';
 
-class ComplaintsRegistrationConstants{
+class ComplaintsConstants{
   static final ComplaintsDetailsModel complaintsDetailsModel = ComplaintsDetailsModel(
       dateOfComplaint: DateTime(2024),
       administrativeArea: "abcd",
@@ -24,6 +24,8 @@ class ComplaintsRegistrationConstants{
     street: "XYZ",
     city: "ABC",
   );
+
+  static final String createdByUserId = "1234567";
 
   static var mockPgrServiceModel = PgrServiceModel(
       clientReferenceId: '123',
