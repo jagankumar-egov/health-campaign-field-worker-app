@@ -1,8 +1,93 @@
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
+
+import 'package:checklist/checklist.dart';
+import 'package:checklist/router/checklist_router.gm.dart';
 import 'dart:async';
 
 import 'package:attendance_management/attendance_management.dart';
 import 'package:attendance_management/router/attendance_router.gm.dart';
-import 'package:checklist/checklist.dart';
 import 'package:closed_household/closed_household.dart';
 import 'package:closed_household/router/closed_household_router.gm.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
@@ -27,7 +112,6 @@ import 'package:referral_reconciliation/referral_reconciliation.dart';
 import 'package:referral_reconciliation/router/referral_reconciliation_router.gm.dart';
 import 'package:registration_delivery/registration_delivery.dart';
 import 'package:registration_delivery/router/registration_delivery_router.gm.dart';
-import 'package:checklist/router/checklist_router.gm.dart';
 
 import '../blocs/app_initialization/app_initialization.dart';
 import '../blocs/auth/auth.dart';
@@ -583,6 +667,102 @@ class _HomePageState extends LocalizedState<HomePage> {
               userId: context.loggedInUserUuid,
               localRepositories: [
                 // INFO : Need to add local repo of package Here
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<LocalRepository<ServiceModel, ServiceSearchModel>>(),
+
                 context.read<
                     LocalRepository<IndividualModel, IndividualSearchModel>>(),
                 context.read<
@@ -614,6 +794,102 @@ class _HomePageState extends LocalizedState<HomePage> {
               ],
               remoteRepositories: [
                 // INFO : Need to add repo repo of package Here
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
+                context
+                    .read<RemoteRepository<ServiceModel, ServiceSearchModel>>(),
+
                 context.read<
                     RemoteRepository<IndividualModel, IndividualSearchModel>>(),
                 context.read<
@@ -653,10 +929,33 @@ class _HomePageState extends LocalizedState<HomePage> {
 void setPackagesSingleton(BuildContext context) {
   context.read<AppInitializationBloc>().state.maybeWhen(
       orElse: () {},
-      initialized: (AppConfiguration appConfiguration, List<ServiceRegistry> serviceRegistry,
-        DashboardConfigSchema? dashboardConfigSchema,) {
+      initialized: (
+        AppConfiguration appConfiguration,
+        List<ServiceRegistry> serviceRegistry,
+        DashboardConfigSchema? dashboardConfigSchema,
+      ) {
         loadLocalization(context, appConfiguration);
-        // INFO : Need to add singleton of package Here
+
+        ChecklistSingleton().setInitialData(
+          projectId: context.projectId,
+          projectName: context.selectedProject.name,
+          loggedInIndividualId: context.loggedInIndividualId ?? '',
+          loggedInUserUuid: context.loggedInUserUuid,
+          appVersion: Constants().version,
+          isHealthFacilityWorker: context.loggedInUserRoles
+              .where((role) =>
+                  role.code == RolesType.healthFacilityWorker.toValue())
+              .toList()
+              .isNotEmpty,
+          roles: context.read<AuthBloc>().state.maybeMap(
+              orElse: () => const Offstage(),
+              authenticated: (res) {
+                return res.userModel.roles
+                    .map((e) => e.code.snakeCase.toUpperCase())
+                    .toList();
+              }),
+        );
+
         RegistrationDeliverySingleton().setInitialData(
           loggedInUser: context.loggedInUserModel,
           loggedInUserUuid: context.loggedInUserUuid,
@@ -706,22 +1005,6 @@ void setPackagesSingleton(BuildContext context) {
           loggedInIndividualId: context.loggedInIndividualId ?? '',
           loggedInUserUuid: context.loggedInUserUuid,
           appVersion: Constants().version,
-        );
-
-        ChecklistSingleton().setInitialData(
-          projectId: context.projectId,
-          projectName: context.selectedProject.name,
-          loggedInIndividualId: context.loggedInIndividualId ?? '',
-          loggedInUserUuid: context.loggedInUserUuid,
-          appVersion: Constants().version,
-          isHealthFacilityWorker: context.loggedInUserRoles.where((role) => role.code == RolesType.healthFacilityWorker.toValue()).toList().isNotEmpty,
-          roles: context.read<AuthBloc>().state.maybeMap(
-            orElse: () => const Offstage(),
-            authenticated: (res) {
-              return res.userModel.roles
-                  .map((e) => e.code.snakeCase.toUpperCase())
-                  .toList();
-            }),
         );
 
         ReferralReconSingleton().setInitialData(

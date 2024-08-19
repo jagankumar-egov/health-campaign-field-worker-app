@@ -1,3 +1,4 @@
+import 'package:checklist/checklist.dart';
 import 'dart:async';
 
 import 'package:digit_components/digit_components.dart';
@@ -110,6 +111,13 @@ class AuthenticatedPageWrapper extends StatelessWidget {
                   body: MultiBlocProvider(
                     providers: [
                       BlocProvider(
+                        create: (_) => ServiceBloc(
+                          const ServiceEmptyState(),
+                          serviceDataRepository: context
+                              .repository<ServiceModel, ServiceSearchModel>(),
+                        ),
+                      ),
+                      BlocProvider(
                         create: (context) {
                           final userId = context.loggedInUserUuid;
 
@@ -202,13 +210,6 @@ class AuthenticatedPageWrapper extends StatelessWidget {
                           referralLocalRepository: ctx.read<
                               LocalRepository<ReferralModel,
                                   ReferralSearchModel>>(),
-                        ),
-                      ),
-                      BlocProvider(
-                        create: (_) => ServiceBloc(
-                          const ServiceEmptyState(),
-                          serviceDataRepository: context
-                              .repository<ServiceModel, ServiceSearchModel>(),
                         ),
                       ),
                     ],

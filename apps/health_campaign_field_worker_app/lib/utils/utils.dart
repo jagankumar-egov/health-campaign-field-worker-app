@@ -1,5 +1,6 @@
 library app_utils;
 
+import 'package:checklist/checklist.init.dart' as checklist_mappers;
 import 'dart:async';
 import 'dart:io';
 
@@ -25,8 +26,6 @@ import 'package:referral_reconciliation/referral_reconciliation.dart'
     as referral_reconciliation_mappers;
 import 'package:registration_delivery/registration_delivery.init.dart'
     as registration_delivery_mappers;
-import 'package:checklist/checklist.init.dart'
-as checklist_mappers;
 
 import '../blocs/app_initialization/app_initialization.dart';
 import '../blocs/projects_beneficiary_downsync/project_beneficiaries_downsync.dart';
@@ -399,8 +398,6 @@ initializeAllMappers() async {
     Future(() => registration_delivery_mappers.initializeMappers()),
     Future(() => dss_mappers.initializeMappers()),
     Future(() => checklist_mappers.initializeMappers()),
-
-
   ];
   await Future.wait(initializations);
 }

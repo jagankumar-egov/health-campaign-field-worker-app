@@ -1,3 +1,5 @@
+import 'package:checklist/router/checklist_router.gm.dart';
+import 'package:checklist/router/checklist_router.dart';
 import 'package:attendance_management/router/attendance_router.dart';
 import 'package:attendance_management/router/attendance_router.gm.dart';
 import 'package:auto_route/auto_route.dart';
@@ -11,8 +13,6 @@ import 'package:digit_scanner/router/digit_scanner_router.gm.dart';
 import 'package:flutter/material.dart';
 import 'package:inventory_management/router/inventory_router.dart';
 import 'package:inventory_management/router/inventory_router.gm.dart';
-import 'package:checklist/router/checklist_router.dart';
-import 'package:checklist/router/checklist_router.gm.dart';
 import 'package:referral_reconciliation/router/referral_reconciliation_router.dart';
 import 'package:referral_reconciliation/router/referral_reconciliation_router.gm.dart';
 import 'package:registration_delivery/router/registration_delivery_router.dart';
@@ -56,7 +56,7 @@ part 'app_router.gr.dart';
     RegistrationDeliveryRoute,
     ClosedHouseholdPackageRoute,
     DashboardRoute,
-    CheckListRoute
+    CheckListRoute,
   ],
 )
 class AppRouter extends _$AppRouter {

@@ -1,3 +1,35 @@
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
+import 'package:checklist/checklist.dart';
 import 'package:attendance_management/models/entities/attendance_log.dart';
 import 'package:checklist/checklist.dart';
 import 'package:digit_data_model/data/local_store/no_sql/schema/entity_mapper_listener.dart';
@@ -79,6 +111,134 @@ class EntityMapper extends EntityMapperListener {
 
       case "complaints":
         final entity = PgrServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
+        return entity;
+
+      case "service":
+        final entity = ServiceModelMapper.fromJson(entityString);
         return entity;
 
       default:
