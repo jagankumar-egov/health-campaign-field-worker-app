@@ -42,10 +42,6 @@ void main() {
   // Add checklist to home file
   _updateHome(homeFilePath);
 
-  // Update the sync_down.dart file
-  // _updateSyncDownFile(syncDownFilePath);
-
-  // Add attendance routes and import to the router file
   _addchecklistRoutesAndImportToRouterFile(routerFilePath);
 
   // Add new case statements to the entity_mapper.dart file
@@ -243,114 +239,6 @@ String insertData(String fileContent, String marker, String data) {
   }
   return fileContent;
 }
-
-// void _updateSyncDownFile(String syncDownFilePath) {
-//   // Define the import statement and the new case statements
-//   var importStatement =
-//       "import 'package:attendance_management/attendance_management.dart';";
-//   var newCases = '''
-//           case DataModelType.attendance:
-//             responseEntities = await remote.search(AttendanceLogSearchModel(
-//               clientReferenceId: entities
-//                   .whereType<AttendanceLogModel>()
-//                   .map((e) => e.clientReferenceId!)
-//                   .whereNotNull()
-//                   .toList(),
-//               tenantId: envConfig.variables.tenantId,
-//             ));
-//
-//             for (var element in operationGroupedEntity.value) {
-//               if (element.id == null) return;
-//               final entity = element.entity as AttendanceLogModel;
-//               final responseEntity = responseEntities
-//                   .whereType<AttendanceLogModel>()
-//                   .firstWhereOrNull(
-//                     (e) => e.clientReferenceId == entity.clientReferenceId,
-//                   );
-//
-//               final serverGeneratedId = responseEntity?.id;
-//               final rowVersion = responseEntity?.rowVersion;
-//               if (serverGeneratedId != null) {
-//                 await local.opLogManager.updateServerGeneratedIds(
-//                   model: UpdateServerGeneratedIdModel(
-//                     clientReferenceId: entity.clientReferenceId.toString(),
-//                     serverGeneratedId: serverGeneratedId,
-//                     nonRecoverableError: entity.nonRecoverableError,
-//                     dataOperation: element.operation,
-//                     rowVersion: rowVersion,
-//                   ),
-//                 );
-//               } else {
-//                 final bool markAsNonRecoverable =
-//                     await local.opLogManager.updateSyncDownRetry(
-//                   entity.clientReferenceId.toString(),
-//                 );
-//
-//                 if (markAsNonRecoverable) {
-//                   await local.update(
-//                     entity.copyWith(
-//                       nonRecoverableError: true,
-//                     ),
-//                     createOpLog: false,
-//                   );
-//                 }
-//               }
-//             }
-//           break;
-// ''';
-//
-//   // Check if the sync_down file exists
-//   var syncDownFile = File(syncDownFilePath);
-//
-//   if (!syncDownFile.existsSync()) {
-//     print('Error: Sync Down file does not exist at path: $syncDownFilePath');
-//     return;
-//   }
-//
-//   // Read the sync_down file
-//   var syncDownFileContent = syncDownFile.readAsStringSync();
-//
-//   // Check if the import statement already exists and add it if not
-//   if (!syncDownFileContent
-//       .contains(importStatement.replaceAll(RegExp(r'\s'), ''))) {
-//     syncDownFileContent = importStatement + '\n' + syncDownFileContent;
-//     print('The import statement was added to sync_down.dart.');
-//   } else {
-//     print('The import statement already exists in sync_down.dart.');
-//   }
-//
-//   // Insert the new case statements
-//   if (!syncDownFileContent
-//       .contains('DataModelType.attendance'.replaceAll(RegExp(r'\s'), ''))) {
-//     // Find the position to insert the new cases within the switch statement
-//     var switchIndex =
-//     syncDownFileContent.indexOf('switch (typeGroupedEntity.key) {');
-//     if (switchIndex != -1) {
-//       var caseInsertionIndex =
-//       syncDownFileContent.indexOf('default:', switchIndex);
-//       if (caseInsertionIndex != -1) {
-//         syncDownFileContent =
-//             syncDownFileContent.substring(0, caseInsertionIndex) +
-//                 newCases +
-//                 '\n' +
-//                 syncDownFileContent.substring(caseInsertionIndex);
-//         print('The new cases were added to sync_down.dart.');
-//
-//         // Write the updated content back to the file
-//         syncDownFile.writeAsStringSync(syncDownFileContent);
-//       } else {
-//         print(
-//             'Error: Could not find the default case in the switch statement in sync_down.dart.');
-//         return;
-//       }
-//     } else {
-//       print('Error: Could not find the switch statement in sync_down.dart.');
-//       return;
-//     }
-//   } else {
-//     print('The new cases already exist in sync_down.dart.');
-//   }
-// }
 
 void _updateEntityMapperFile(String entityMapperFilePath) {
   // Define the import statement and new case statements
@@ -589,8 +477,6 @@ void _addChecklistConstantsToConstantsFile(
     "import 'package:checklist/checklist.dart';",
   ];
 
-  // Define the attendance configuration
-  var attendanceConfiguration = '''
 ChecklistSingleton().setTenantId(envConfig.variables.tenantId);
   ''';
 
@@ -630,8 +516,6 @@ if (value == DataModelType.service)
   // Normalize the whitespace in the file content and the checklist configuration
   var normalizedFileContent =
   constantsFileContent.replaceAll(RegExp(r'\s'), '');
-  var normalizedAttendanceConfiguration =
-  attendanceConfiguration.replaceAll(RegExp(r'\s'), '');
 
   // Check if the import statements already exist in the file
   for (var importStatement in importStatements) {
@@ -643,10 +527,7 @@ if (value == DataModelType.service)
     }
   }
 
-  // Check if the attendance configuration already exists in the file
   // If not, add it to the file
-  if (!normalizedFileContent.contains(normalizedAttendanceConfiguration)) {
-    // Find the setInitialDataOfPackages method and add the attendance configuration inside it
     var setInitialDataOfPackagesIndex =
     constantsFileContent.indexOf('void setInitialDataOfPackages() {');
     if (setInitialDataOfPackagesIndex != -1) {
@@ -657,7 +538,6 @@ if (value == DataModelType.service)
           1;
       constantsFileContent =
           constantsFileContent.substring(0, endOfSetInitialDataOfPackages - 1) +
-              '\n  $attendanceConfiguration' +
               constantsFileContent.substring(endOfSetInitialDataOfPackages - 1);
       print('The checklist configuration was added.');
     }
@@ -782,17 +662,14 @@ void _addRepoToNetworkManagerProviderWrapper(
       }
     }
 
-    // Normalize the whitespace in the file content and the remote repository of attendance
     var normalizedFileContent =
     networkManagerProviderWrapperFileContent.replaceAll(RegExp(r'\s'), '');
 
 // Check if the local repository providers already exist in the file
     for (var repositoryProvider in localRepositories) {
-      var normalizedLocalRepositoryOfAttendance =
       repositoryProvider.replaceAll(RegExp(r'\s'), '');
 
       if (!normalizedFileContent
-          .contains(normalizedLocalRepositoryOfAttendance)) {
         // Add the local repository provider to the file
         networkManagerProviderWrapperFileContent =
             networkManagerProviderWrapperFileContent.replaceFirst(

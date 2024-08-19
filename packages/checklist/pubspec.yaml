@@ -1,10 +1,12 @@
 name: checklist
 description: "A new Flutter package project."
 version: 0.0.1
-#homepage:
+homepage: "https://github.com/egovernments/health-campaign-field-worker-app/tree/checklist-tanishi/packages/checklist"
+repository: "https://github.com/egovernments/health-campaign-field-worker-app"
 
 environment:
-  sdk: '>=3.0.0 <=4.0.0'
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:

@@ -74,15 +74,16 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
   final LocalRepository<FacilityModel, FacilitySearchModel>
       facilityLocalRepository;
 
-  ///Service Repositories
+  /// Stock Repositories
+  final RemoteRepository<StockModel, StockSearchModel> stockRemoteRepository;
+  final LocalRepository<StockModel, StockSearchModel> stockLocalRepository;
+
+  /// Service Definition Repositories
   final RemoteRepository<ServiceDefinitionModel, ServiceDefinitionSearchModel>
       serviceDefinitionRemoteRepository;
   final LocalRepository<ServiceDefinitionModel, ServiceDefinitionSearchModel>
       serviceDefinitionLocalRepository;
 
-  /// Stock Repositories
-  final RemoteRepository<StockModel, StockSearchModel> stockRemoteRepository;
-  final LocalRepository<StockModel, StockSearchModel> stockLocalRepository;
 
   ///Boundary Resource Repositories
   final RemoteRepository<BoundaryModel, BoundarySearchModel>
