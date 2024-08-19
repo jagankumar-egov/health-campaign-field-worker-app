@@ -17,6 +17,7 @@ part 'complaints_inbox.freezed.dart';
 
 typedef ComplaintsInboxEmitter = Emitter<ComplaintInboxState>;
 
+/// Complaint inbox Bloc for Loading Complaints, Filtering Complaints, Sorting Complaints and Searching Complaints
 class ComplaintsInboxBloc
     extends Bloc<ComplaintInboxEvent, ComplaintInboxState> {
   final PgrServiceDataRepository pgrRepository;
@@ -81,7 +82,6 @@ class ComplaintsInboxBloc
     if (pgrRepository is PgrServiceLocalRepository) {
       complaints = await (pgrRepository as PgrServiceLocalRepository).search(
         PgrServiceSearchModel(
-          // tenantId: envConfig.variables.tenantId,
           tenantId: ComplaintsSingleton().tenantId,
           complaintAssignedTo: event.complaintAssignedTo,
           currentUserName: event.currentUserName,
@@ -94,7 +94,6 @@ class ComplaintsInboxBloc
     } else if (pgrRepository is PgrServiceRemoteRepository) {
       complaints = await pgrRepository.search(
         PgrServiceSearchModel(
-          // tenantId: envConfig.variables.tenantId,
           tenantId: ComplaintsSingleton().tenantId,
           complaintAssignedTo: event.complaintAssignedTo,
           currentUserName: event.currentUserName,
@@ -185,7 +184,6 @@ class ComplaintsInboxBloc
     if (pgrRepository is PgrServiceLocalRepository) {
       complaints = await (pgrRepository as PgrServiceLocalRepository).search(
         PgrServiceSearchModel(
-          // tenantId: envConfig.variables.tenantId,
           tenantId: ComplaintsSingleton().tenantId,
           complaintNumber: event.complaintNumber,
           complainantMobileNumber: event.mobileNumber,
@@ -195,7 +193,6 @@ class ComplaintsInboxBloc
     } else if (pgrRepository is PgrServiceRemoteRepository) {
       complaints = await pgrRepository.search(
         PgrServiceSearchModel(
-          // tenantId: envConfig.variables.tenantId,
           tenantId: ComplaintsSingleton().tenantId,
           complaintNumber: event.complaintNumber,
           complainantMobileNumber: event.mobileNumber,

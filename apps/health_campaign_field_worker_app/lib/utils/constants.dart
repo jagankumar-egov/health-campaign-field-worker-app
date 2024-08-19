@@ -1,3 +1,4 @@
+import 'package:complaints/complaints.dart';
 import 'package:attendance_management/attendance_management.dart';
 import 'package:closed_household/utils/utils.dart';
 import 'package:collection/collection.dart';
@@ -13,7 +14,6 @@ import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:referral_reconciliation/referral_reconciliation.dart';
 import 'package:registration_delivery/registration_delivery.dart';
-import 'package:complaints/complaints.dart';
 
 import '../data/local_store/no_sql/schema/app_configuration.dart';
 import '../data/local_store/no_sql/schema/entity_mapper.dart';
@@ -111,10 +111,6 @@ class Constants {
         sql,
         BoundaryOpLogManager(isar),
       ),
-      PgrServiceLocalRepository(
-        sql,
-        PgrServiceOpLogManager(isar),
-      ),
       HouseholdMemberLocalRepository(sql, HouseholdMemberOpLogManager(isar)),
       HouseholdLocalRepository(sql, HouseholdOpLogManager(isar)),
       ProjectBeneficiaryLocalRepository(
@@ -142,6 +138,11 @@ class Constants {
       HFReferralLocalRepository(
         sql,
         HFReferralOpLogManager(isar),
+      ),
+
+      PgrServiceLocalRepository(
+        sql,
+        PgrServiceOpLogManager(isar),
       ),
     ];
   }
@@ -185,8 +186,6 @@ class Constants {
       remoteRepositories.addAll([
         if (value == DataModelType.facility)
           FacilityRemoteRepository(dio, actionMap: actions),
-        if (value == DataModelType.complaints)
-          PgrServiceRemoteRepository(dio, actionMap: actions),
         if (value == DataModelType.productVariant)
           ProductVariantRemoteRepository(dio, actionMap: actions),
         if (value == DataModelType.boundary)
@@ -229,6 +228,9 @@ class Constants {
           AttendanceLogRemoteRepository(dio, actionMap: actions),
         if (value == DataModelType.hFReferral)
           HFReferralRemoteRepository(dio, actionMap: actions),
+
+        if (value == DataModelType.complaints)
+          PgrServiceRemoteRepository(dio, actionMap: actions),
       ]);
     }
 
