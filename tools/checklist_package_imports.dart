@@ -42,6 +42,7 @@ void main() {
   // Add checklist to home file
   _updateHome(homeFilePath);
 
+  // Add Checklist routes and import to the router file
   _addchecklistRoutesAndImportToRouterFile(routerFilePath);
 
   // Add new case statements to the entity_mapper.dart file
@@ -477,6 +478,8 @@ void _addChecklistConstantsToConstantsFile(
     "import 'package:checklist/checklist.dart';",
   ];
 
+  // Define the Checklist configuration
+  var ChecklistConfiguration = '''
 ChecklistSingleton().setTenantId(envConfig.variables.tenantId);
   ''';
 
@@ -516,6 +519,8 @@ if (value == DataModelType.service)
   // Normalize the whitespace in the file content and the checklist configuration
   var normalizedFileContent =
   constantsFileContent.replaceAll(RegExp(r'\s'), '');
+  var normalizedChecklistConfiguration =
+  ChecklistConfiguration.replaceAll(RegExp(r'\s'), '');
 
   // Check if the import statements already exist in the file
   for (var importStatement in importStatements) {
@@ -527,7 +532,10 @@ if (value == DataModelType.service)
     }
   }
 
+  // Check if the Checklist configuration already exists in the file
   // If not, add it to the file
+  if (!normalizedFileContent.contains(normalizedChecklistConfiguration)) {
+    // Find the setInitialDataOfPackages method and add the Checklist configuration inside it
     var setInitialDataOfPackagesIndex =
     constantsFileContent.indexOf('void setInitialDataOfPackages() {');
     if (setInitialDataOfPackagesIndex != -1) {
@@ -538,6 +546,7 @@ if (value == DataModelType.service)
           1;
       constantsFileContent =
           constantsFileContent.substring(0, endOfSetInitialDataOfPackages - 1) +
+              '\n  $ChecklistConfiguration' +
               constantsFileContent.substring(endOfSetInitialDataOfPackages - 1);
       print('The checklist configuration was added.');
     }
@@ -597,7 +606,7 @@ void _addRepoToNetworkManagerProviderWrapper(
         ),
       ),
     ),'''
-    '''RepositoryProvider<LocalRepository<ServiceModel, ServiceSearchModel>>(
+        '''RepositoryProvider<LocalRepository<ServiceModel, ServiceSearchModel>>(
       create: (_) => ServiceLocalRepository(
         sql,
         ServiceOpLogManager(isar),
@@ -662,14 +671,17 @@ void _addRepoToNetworkManagerProviderWrapper(
       }
     }
 
+    // Normalize the whitespace in the file content and the remote repository of Checklist
     var normalizedFileContent =
     networkManagerProviderWrapperFileContent.replaceAll(RegExp(r'\s'), '');
 
 // Check if the local repository providers already exist in the file
     for (var repositoryProvider in localRepositories) {
+      var normalizedLocalRepositoryOfChecklist =
       repositoryProvider.replaceAll(RegExp(r'\s'), '');
 
       if (!normalizedFileContent
+          .contains(normalizedLocalRepositoryOfChecklist)) {
         // Add the local repository provider to the file
         networkManagerProviderWrapperFileContent =
             networkManagerProviderWrapperFileContent.replaceFirst(
@@ -714,7 +726,7 @@ void _createLocalizationDelegatesFile(String localizationDelegatesFilePath) {
   var importStatement =
       "import 'package:checklist/blocs/app_localization.dart' as checklist_localization;";
   var delegate =
-      '''checklist_localization.ChecklistLocalization.getDelegate(
+  '''checklist_localization.ChecklistLocalization.getDelegate(
   LocalizationLocalRepository().returnLocalizationFromSQL(sql) as Future,
   appConfig.languages!,
   ),''';
