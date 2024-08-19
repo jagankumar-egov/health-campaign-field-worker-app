@@ -583,20 +583,6 @@ class _HomePageState extends LocalizedState<HomePage> {
 
     final Map<String, GlobalKey> homeItemsShowcaseMap = {
       // INFO : Need to add showcase keys of package Here
-      i18.home.dashboard: homeShowcaseData.dashBoard.showcaseKey,
-
-      i18.home.dashboard: homeShowcaseData.dashBoard.showcaseKey,
-
-      i18.home.dashboard: homeShowcaseData.dashBoard.showcaseKey,
-
-      i18.home.dashboard: homeShowcaseData.dashBoard.showcaseKey,
-
-      i18.home.dashboard: homeShowcaseData.dashBoard.showcaseKey,
-
-      i18.home.dashboard: homeShowcaseData.dashBoard.showcaseKey,
-
-      i18.home.dashboard: homeShowcaseData.dashBoard.showcaseKey,
-
       i18.home.beneficiaryLabel:
           homeShowcaseData.distributorBeneficiaries.showcaseKey,
       i18.home.manageStockLabel:
@@ -640,8 +626,7 @@ class _HomePageState extends LocalizedState<HomePage> {
                 .map((e) => e.displayName)
                 .toList()
                 .contains(element) ||
-            element == i18.home.db ||
-            element == i18.home.dashboard)
+            element == i18.home.db)
         .toList();
 
     final showcaseKeys = filteredLabels
