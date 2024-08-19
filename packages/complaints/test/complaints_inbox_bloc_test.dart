@@ -6,7 +6,7 @@ import 'package:bloc_test/bloc_test.dart';
 
 import 'package:complaints/complaints.dart';
 
-import '../constants/test_constants.dart';
+import 'constants/test_constants.dart';
 
 
 class MockPgrServiceDataRepository extends Mock implements
