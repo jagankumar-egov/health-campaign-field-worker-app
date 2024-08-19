@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:auto_route/auto_route.dart';
 import 'package:checklist/checklist.dart';
 import 'package:checklist/utils/extensions/extensions.dart';
+import 'package:digit_components/blocs/location/location.dart';
 import 'package:digit_components/theme/colors.dart';
 import 'package:digit_components/theme/digit_theme.dart';
 import 'package:digit_components/utils/date_utils.dart';
