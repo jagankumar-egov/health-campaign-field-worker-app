@@ -1,3 +1,4 @@
+import 'package:complaints/complaints.dart';
 import 'package:attendance_management/attendance_management.dart';
 import 'package:closed_household/utils/utils.dart';
 import 'package:collection/collection.dart';
@@ -110,10 +111,6 @@ class Constants {
         sql,
         BoundaryOpLogManager(isar),
       ),
-      PgrServiceLocalRepository(
-        sql,
-        PgrServiceOpLogManager(isar),
-      ),
       HouseholdMemberLocalRepository(sql, HouseholdMemberOpLogManager(isar)),
       HouseholdLocalRepository(sql, HouseholdOpLogManager(isar)),
       ProjectBeneficiaryLocalRepository(
@@ -141,6 +138,11 @@ class Constants {
       HFReferralLocalRepository(
         sql,
         HFReferralOpLogManager(isar),
+      ),
+
+      PgrServiceLocalRepository(
+        sql,
+        PgrServiceOpLogManager(isar),
       ),
     ];
   }
@@ -184,8 +186,6 @@ class Constants {
       remoteRepositories.addAll([
         if (value == DataModelType.facility)
           FacilityRemoteRepository(dio, actionMap: actions),
-        if (value == DataModelType.complaints)
-          PgrServiceRemoteRepository(dio, actionMap: actions),
         if (value == DataModelType.productVariant)
           ProductVariantRemoteRepository(dio, actionMap: actions),
         if (value == DataModelType.boundary)
@@ -228,6 +228,9 @@ class Constants {
           AttendanceLogRemoteRepository(dio, actionMap: actions),
         if (value == DataModelType.hFReferral)
           HFReferralRemoteRepository(dio, actionMap: actions),
+
+        if (value == DataModelType.complaints)
+          PgrServiceRemoteRepository(dio, actionMap: actions),
       ]);
     }
 

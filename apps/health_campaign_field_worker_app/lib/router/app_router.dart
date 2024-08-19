@@ -1,3 +1,6 @@
+import 'package:complaints/router/complaints_router.dart';
+import 'package:complaints/router/complaints_router.gm.dart';
+
 import 'package:attendance_management/router/attendance_router.dart';
 import 'package:attendance_management/router/attendance_router.gm.dart';
 import 'package:auto_route/auto_route.dart';
@@ -25,17 +28,6 @@ import '../pages/checklist/checklist_boundary_view.dart';
 import '../pages/checklist/checklist_preview.dart';
 import '../pages/checklist/checklist_view.dart';
 import '../pages/checklist/checklist_wrapper.dart';
-import '../pages/complaints/inbox/complaints_details_view.dart';
-import '../pages/complaints/inbox/complaints_inbox.dart';
-import '../pages/complaints/inbox/complaints_inbox_filter.dart';
-import '../pages/complaints/inbox/complaints_inbox_search.dart';
-import '../pages/complaints/inbox/complaints_inbox_sort.dart';
-import '../pages/complaints/inbox/complaints_inbox_wrapper.dart';
-import '../pages/complaints/registration/complaint_type.dart';
-import '../pages/complaints/registration/complaints_details.dart';
-import '../pages/complaints/registration/complaints_location.dart';
-import '../pages/complaints/registration/complaints_registration_wrapper.dart';
-import '../pages/complaints_acknowledgement.dart';
 import '../pages/home.dart';
 import '../pages/language_selection.dart';
 import '../pages/login.dart';
@@ -59,6 +51,7 @@ part 'app_router.gr.dart';
     RegistrationDeliveryRoute,
     ClosedHouseholdPackageRoute,
     DashboardRoute,
+    ComplaintsRoute,
   ],
 )
 class AppRouter extends _$AppRouter {
@@ -235,10 +228,7 @@ class AppRouter extends _$AppRouter {
           path: 'beneficiary-acknowledgement',
         ),
         AutoRoute(page: AcknowledgementRoute.page, path: 'acknowledgement'),
-        AutoRoute(
-          page: ComplaintsAcknowledgementRoute.page,
-          path: 'complaints-acknowledgement',
-        ),
+
         AutoRoute(
           page: ProjectFacilitySelectionRoute.page,
           path: 'select-project-facilities',
@@ -261,7 +251,7 @@ class AppRouter extends _$AppRouter {
           path: 'select-boundary',
         ),
 
-        /// Complaints Inbox
+        // INFO : Need to add Router of package Here
         AutoRoute(
           page: ComplaintsInboxWrapperRoute.page,
           path: 'complaints-inbox',
@@ -309,6 +299,12 @@ class AppRouter extends _$AppRouter {
               path: 'complaints-details',
             ),
           ],
+        ),
+
+        /// Complaints Acknowledgemnet
+        AutoRoute(
+          page: ComplaintsAcknowledgementRoute.page,
+          path: 'complaints-acknowledgement',
         ),
 
         // Attendance Route

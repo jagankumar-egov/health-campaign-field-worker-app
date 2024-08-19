@@ -5,6 +5,8 @@ import 'dart:io';
 
 import 'package:attendance_management/attendance_management.dart'
     as attendance_mappers;
+
+import 'package:complaints/complaints.init.dart' as complaints_mappers;
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:digit_components/theme/digit_theme.dart';
 import 'package:digit_components/widgets/atoms/digit_toaster.dart';
@@ -264,7 +266,7 @@ void showDownloadDialog(
                   );
             } else {
               Navigator.of(context, rootNavigator: true).pop();
-              context.router.maybePop();
+              context.router.replaceAll([HomeRoute()]);
             }
           },
         ),
@@ -272,7 +274,7 @@ void showDownloadDialog(
           label: model.secondaryButtonLabel ?? '',
           action: (ctx) {
             Navigator.of(context, rootNavigator: true).pop();
-            context.router.maybePop();
+            context.router.replaceAll([HomeRoute()]);
           },
         ),
       );
@@ -297,7 +299,7 @@ void showDownloadDialog(
             action: (ctx) {
               if (dialogType == DigitProgressDialogType.pendingSync) {
                 Navigator.of(context, rootNavigator: true).pop();
-                context.router.popUntilRouteWithName(HomeRoute.name);
+                context.router.replaceAll([HomeRoute()]);
               } else {
                 if ((model.totalCount ?? 0) > 0) {
                   context.read<BeneficiaryDownSyncBloc>().add(
@@ -324,7 +326,7 @@ void showDownloadDialog(
                   label: model.secondaryButtonLabel ?? '',
                   action: (ctx) {
                     Navigator.of(context, rootNavigator: true).pop();
-                    context.router.popUntilRouteWithName(HomeRoute.name);
+                    context.router.replaceAll([HomeRoute()]);
                   },
                 )
               : null,
@@ -396,6 +398,7 @@ initializeAllMappers() async {
     Future(() => data_model_mappers.initializeMappers()),
     Future(() => registration_delivery_mappers.initializeMappers()),
     Future(() => dss_mappers.initializeMappers()),
+    Future(()=>complaints_mappers.initializeMappers())
   ];
   await Future.wait(initializations);
 }

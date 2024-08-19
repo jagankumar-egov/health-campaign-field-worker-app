@@ -1,3 +1,6 @@
+import 'package:complaints/complaints.dart';
+import 'package:complaints/router/complaints_router.gm.dart';
+
 import 'dart:async';
 
 import 'package:attendance_management/attendance_management.dart';
@@ -25,6 +28,7 @@ import 'package:referral_reconciliation/referral_reconciliation.dart';
 import 'package:referral_reconciliation/router/referral_reconciliation_router.gm.dart';
 import 'package:registration_delivery/registration_delivery.dart';
 import 'package:registration_delivery/router/registration_delivery_router.gm.dart';
+
 
 import '../blocs/app_initialization/app_initialization.dart';
 import '../blocs/auth/auth.dart';
@@ -323,6 +327,16 @@ class _HomePageState extends LocalizedState<HomePage> {
 
     final Map<String, Widget> homeItemsMap = {
       // INFO : Need to add home items of package Here
+      i18.home.fileComplaint:
+          homeShowcaseData.distributorFileComplaint.buildWith(
+        child: HomeItemCard(
+          icon: Icons.announcement,
+          label: i18.home.fileComplaint,
+          onPressed: () =>
+              context.router.push(const ComplaintsInboxWrapperRoute()),
+        ),
+      ),
+
       i18.home.dashboard: homeShowcaseData.dashBoard.buildWith(
         child: HomeItemCard(
           icon: Icons.bar_chart_sharp,
@@ -393,15 +407,7 @@ class _HomePageState extends LocalizedState<HomePage> {
           onPressed: () => context.router.push(ChecklistWrapperRoute()),
         ),
       ),
-      i18.home.fileComplaint:
-          homeShowcaseData.distributorFileComplaint.buildWith(
-        child: HomeItemCard(
-          icon: Icons.announcement,
-          label: i18.home.fileComplaint,
-          onPressed: () =>
-              context.router.push(const ComplaintsInboxWrapperRoute()),
-        ),
-      ),
+
       i18.home.syncDataLabel: homeShowcaseData.distributorSyncData.buildWith(
         child: StreamBuilder<Map<String, dynamic>?>(
           stream: FlutterBackgroundService().on('serviceRunning'),
@@ -496,6 +502,9 @@ class _HomePageState extends LocalizedState<HomePage> {
 
     final Map<String, GlobalKey> homeItemsShowcaseMap = {
       // INFO : Need to add showcase keys of package Here
+      i18.home.fileComplaint:
+          homeShowcaseData.distributorFileComplaint.showcaseKey,
+
       i18.home.dashboard: homeShowcaseData.dashBoard.showcaseKey,
 
       i18.home.dashboard: homeShowcaseData.dashBoard.showcaseKey,
@@ -517,8 +526,7 @@ class _HomePageState extends LocalizedState<HomePage> {
       i18.home.stockReconciliationLabel:
           homeShowcaseData.wareHouseManagerStockReconciliation.showcaseKey,
       i18.home.myCheckList: homeShowcaseData.supervisorMyChecklist.showcaseKey,
-      i18.home.fileComplaint:
-          homeShowcaseData.distributorFileComplaint.showcaseKey,
+
       i18.home.syncDataLabel: homeShowcaseData.distributorSyncData.showcaseKey,
       i18.home.viewReportsLabel: homeShowcaseData.inventoryReport.showcaseKey,
       i18.home.beneficiaryReferralLabel:
@@ -581,6 +589,9 @@ class _HomePageState extends LocalizedState<HomePage> {
               localRepositories: [
                 // INFO : Need to add local repo of package Here
                 context.read<
+                    LocalRepository<PgrServiceModel, PgrServiceSearchModel>>(),
+
+                context.read<
                     LocalRepository<IndividualModel, IndividualSearchModel>>(),
                 context.read<
                     LocalRepository<HouseholdModel, HouseholdSearchModel>>(),
@@ -601,8 +612,7 @@ class _HomePageState extends LocalizedState<HomePage> {
                 context.read<
                     LocalRepository<StockReconciliationModel,
                         StockReconciliationSearchModel>>(),
-                context.read<
-                    LocalRepository<PgrServiceModel, PgrServiceSearchModel>>(),
+
                 context.read<
                     LocalRepository<HFReferralModel, HFReferralSearchModel>>(),
                 context.read<
@@ -611,6 +621,9 @@ class _HomePageState extends LocalizedState<HomePage> {
               ],
               remoteRepositories: [
                 // INFO : Need to add repo repo of package Here
+                context.read<
+                    RemoteRepository<PgrServiceModel, PgrServiceSearchModel>>(),
+
                 context.read<
                     RemoteRepository<IndividualModel, IndividualSearchModel>>(),
                 context.read<
@@ -632,8 +645,7 @@ class _HomePageState extends LocalizedState<HomePage> {
                 context.read<
                     RemoteRepository<StockReconciliationModel,
                         StockReconciliationSearchModel>>(),
-                context.read<
-                    RemoteRepository<PgrServiceModel, PgrServiceSearchModel>>(),
+
                 context.read<
                     RemoteRepository<HFReferralModel, HFReferralSearchModel>>(),
                 context.read<
@@ -650,12 +662,25 @@ class _HomePageState extends LocalizedState<HomePage> {
 void setPackagesSingleton(BuildContext context) {
   context.read<AppInitializationBloc>().state.maybeWhen(
       orElse: () {},
-      initialized: (AppConfiguration appConfiguration, List<ServiceRegistry> serviceRegistry,
-        DashboardConfigSchema? dashboardConfigSchema,) {
+      initialized: (
+        AppConfiguration appConfiguration,
+        List<ServiceRegistry> serviceRegistry,
+        DashboardConfigSchema? dashboardConfigSchema,
+      ) {
         loadLocalization(context, appConfiguration);
         // INFO : Need to add singleton of package Here
+        ComplaintsSingleton().setInitialData(
+          tenantId: envConfig.variables.tenantId,
+          loggedInUserUuid: context.loggedInUserUuid,
+          userMobileNumber: context.loggedInUser.mobileNumber,
+          loggedInUserName: context.loggedInUser.name,
+          complaintTypes:
+              appConfiguration.complaintTypes!.map((e) => e.code).toList(),
+          userName: context.loggedInUser.name ?? '',
+        );
+
         RegistrationDeliverySingleton().setInitialData(
-          loggedInUser: context.loggedInUserModel,
+          loggedInUser:context.loggedInUserModel,
           loggedInUserUuid: context.loggedInUserUuid,
           maxRadius: appConfiguration.maxRadius!,
           projectId: context.projectId,
@@ -740,7 +765,7 @@ void setPackagesSingleton(BuildContext context) {
               )
               .toList()
               .isNotEmpty,
-          loggedInUser: context.loggedInUserModel,
+
           projectId: context.projectId,
           loggedInUserUuid: context.loggedInUserUuid,
           transportTypes: appConfiguration.transportTypes
@@ -761,6 +786,8 @@ void setPackagesSingleton(BuildContext context) {
               action: ApiOperation.search.toValue(),
               entityName: DashboardResponseModel.schemaName,
             ));
+
+
       });
 }
 

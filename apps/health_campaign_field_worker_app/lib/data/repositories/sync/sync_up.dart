@@ -1,3 +1,5 @@
+import 'package:complaints/complaints.dart';
+
 import 'dart:async';
 
 import 'package:closed_household/closed_household.dart';
@@ -181,7 +183,7 @@ class PerformSyncUp {
               operationGroupedEntity.key,
             );
             for (final syncedEntity in sublist) {
-              if (syncedEntity.type == DataModelType.complaints) continue;
+              // if (syncedEntity.type == DataModelType.complaints) continue;
               await local.markSyncedUp(
                 entry: syncedEntity,
                 nonRecoverableError: syncedEntity.nonRecoverableError,
@@ -214,6 +216,7 @@ class PerformSyncUp {
             final entities = getEntityModel(sublist, local);
             if (operationGroupedEntity.key == DataOperation.create) {
               switch (typeGroupedEntity.key) {
+
                 case DataModelType.complaints:
                   for (final entity in entities) {
                     if (remote is PgrServiceRemoteRepository &&
@@ -285,6 +288,7 @@ class PerformSyncUp {
                     }
                   }
                   break;
+
                 default:
                   await remote.bulkCreate(entities);
               }
