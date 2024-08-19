@@ -1,5 +1,4 @@
 import 'package:checklist/checklist.dart';
-import 'package:checklist/checklist.dart';
 // GENERATED using mason_cli
 import 'dart:async';
 import 'dart:core';
