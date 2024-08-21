@@ -300,7 +300,8 @@ class _ChecklistViewPageState extends LocalizedState<ChecklistViewPage> {
                           ),
                         );
                         if (shouldSubmit ?? false) {
-                          router.push(AcknowledgementRoute());
+                          router.navigate(ChecklistRoute());
+                          router.push(ChecklistAcknowledgementRoute());
                         }
                       },
                       child: Text(

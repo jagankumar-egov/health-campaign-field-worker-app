@@ -227,6 +227,7 @@ class AppRouter extends _$AppRouter {
                   page: ChecklistBoundaryViewRoute.page, path: 'view-boundary'),
               AutoRoute(page: ChecklistViewRoute.page, path: 'view'),
               AutoRoute(page: ChecklistPreviewRoute.page, path: 'preview'),
+              AutoRoute(page: ChecklistAcknowledgementRoute.page, path: 'checklist-acknowledgement'),
             ]),
         AutoRoute(
           page: BeneficiaryAcknowledgementRoute.page,
