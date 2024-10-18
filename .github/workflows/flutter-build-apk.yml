@@ -34,7 +34,7 @@ jobs:
       - name: Install Dependencies
         run: flutter pub get
 
-      - name: Create .env file
+      - name: Create .env file 
         run: |
           echo "BASE_URL=${{ vars.BASE_URL }}" >> apps/health_campaign_field_worker_app/.env
           echo "MDMS_API_PATH=${{ vars.MDMS_API_PATH }}" >> apps/health_campaign_field_worker_app/.env
